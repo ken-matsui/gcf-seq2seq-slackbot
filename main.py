@@ -36,7 +36,7 @@ class Message(object):
 
 def _say(text):
     """Slackの形式でJSONを返す"""
-    return json.load({
+    return json.loads({
         "text": "response: " + text,  # 投稿する内容
         "username": "mybot",  # bot名
         "icon_emoji": "",  # botのiconを絵文字の中から指定
