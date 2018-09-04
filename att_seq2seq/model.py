@@ -14,6 +14,7 @@ else:
 
 __all__ = ['AttSeq2Seq']
 
+
 # LSTMエンコーダークラス
 class LSTMEncoder(Chain):
 	def __init__(self, vocab_size, embed_size, hidden_size):

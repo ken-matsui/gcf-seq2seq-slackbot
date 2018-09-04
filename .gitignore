@@ -4,3 +4,7 @@ __pycache__
 !.gitkeep
 .DS_Store
 .python-version
+
+venv
+
+.idea
