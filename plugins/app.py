@@ -4,7 +4,7 @@ import os
 import glob
 from datetime import datetime, timedelta
 
-from slackbot.bot import default_reply
+# from slackbot.bot import default_reply
 from google.cloud import datastore
 from google.cloud import storage
 
@@ -40,7 +40,7 @@ decoder = Decoder(model, data_converter, '/tmp/' + npz)
 os.remove('/tmp/' + npz)  # 使用後は消去
 
 
-@default_reply()
+# @default_reply()
 def default_func(message):
     query = message.body['text']
     response = decoder(query)
