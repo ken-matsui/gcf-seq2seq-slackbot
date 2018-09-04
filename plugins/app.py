@@ -42,7 +42,8 @@ os.remove('/tmp/' + npz)  # 使用後は消去
 
 # @default_reply()
 def default_func(msg):
-    query = msg.text
+    # "query: |->     "
+    query = msg.text[7:]
     response = decoder(query)
     # store_data(datetime.now().timestamp(), msg.user_name, query, response)
     return response
