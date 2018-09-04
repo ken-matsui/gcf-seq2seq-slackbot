@@ -44,7 +44,7 @@ os.remove('/tmp/' + npz)  # 使用後は消去
 def default_func(msg):
     query = msg.text
     response = decoder(query)
-    # store_data(int(float(msg.body['ts'])), msg.user_name, query, response)
+    store_data(datetime.now().timestamp(), msg.user_name, query, response)
     return response
 
 
@@ -53,7 +53,7 @@ def store_data(timestamp, user, query, response):
     kind = 'Talk'
     # The name/ID for the new entity
     time = datetime.fromtimestamp(timestamp)
-    time += timedelta(hours=9) # timezoneをJSTに調整
+    time += timedelta(hours=9)  # timezoneをJSTに調整
     name = str(time)
     # The Cloud Datastore key for the new entity
     talk_key = datastore_client.key(kind, name)
