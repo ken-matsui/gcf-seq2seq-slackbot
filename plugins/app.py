@@ -44,7 +44,7 @@ os.remove('/tmp/' + npz)  # 使用後は消去
 def default_func(msg):
     query = msg.text
     response = decoder(query)
-    store_data(datetime.now().timestamp(), msg.user_name, query, response)
+    # store_data(datetime.now().timestamp(), msg.user_name, query, response)
     return response
 
 
