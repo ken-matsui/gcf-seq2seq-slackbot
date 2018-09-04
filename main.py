@@ -48,4 +48,4 @@ def main(request):
     print(str(msg))
 
     # query = request.body["text"]
-    return _say(default_func(request))
+    return _say(default_func(msg))
