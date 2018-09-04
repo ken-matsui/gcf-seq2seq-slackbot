@@ -45,7 +45,7 @@ def _say(text):
 
 def main(request):
     msg = Message(request.form)
-    logging.debug(msg)
+    print(str(msg))
 
     # query = request.body["text"]
     default_func(request)
