@@ -45,7 +45,7 @@ def default_func(msg):
     # "query: |->     "
     query = msg.text[7:]
     response = decoder(query)
-    store_data(msg.timestamp, msg.user_name, query, response)
+    store_data(int(msg.timestamp), msg.user_name, query, response)
     return response
 
 
