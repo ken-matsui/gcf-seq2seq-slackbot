@@ -45,8 +45,7 @@ def _say(text):
 
 def main(request):
     msg = Message(request.form)
-    print(str(request))
+    print(str(msg))
 
     # query = request.body["text"]
-    default_func(request)
-    return 'OK'
+    return _say(default_func(request))

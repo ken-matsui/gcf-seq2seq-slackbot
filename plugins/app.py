@@ -41,12 +41,11 @@ os.remove('/tmp/' + npz)  # 使用後は消去
 
 
 # @default_reply()
-def default_func(message):
-    query = message.body['text']
+def default_func(msg):
+    query = msg.text
     response = decoder(query)
-    message.reply(response)
-    username = message.channel._client.users[message.body['user']][u'name']
-    store_data(int(float(message.body['ts'])), username, query, response)
+    # store_data(int(float(msg.body['ts'])), msg.user_name, query, response)
+    return response
 
 
 def store_data(timestamp, user, query, response):
