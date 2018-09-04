@@ -38,7 +38,7 @@ def _say(text):
     """Slackの形式でJSONを返す"""
     return json.dumps({
         "text": "response: " + text,  # 投稿する内容
-        "username": "mybot",  # bot名
+        "username": "matkenbot",  # bot名
         "icon_emoji": "",  # botのiconを絵文字の中から指定
     })
 
