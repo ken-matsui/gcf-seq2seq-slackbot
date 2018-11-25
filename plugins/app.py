@@ -5,7 +5,6 @@ import glob
 from datetime import datetime, timedelta
 
 # from slackbot.bot import default_reply
-from google.cloud import datastore
 from google.cloud import storage
 
 from att_seq2seq.model import AttSeq2Seq
@@ -20,7 +19,6 @@ BATCH_COL_SIZE = 15
 
 
 # Instantiates a client
-datastore_client = datastore.Client()
 storage_client = storage.Client()
 
 data_converter = DataConverter()
@@ -45,26 +43,5 @@ def default_func(msg):
     # "query: |->     "
     query = msg.text[7:]
     response = decoder(query)
-    store_data(int(float(msg.timestamp)), msg.user_name, query, response)
     return response
 
-
-def store_data(timestamp, user, query, response):
-    # The kind for the new entity
-    kind = 'Talk'
-    # The name/ID for the new entity
-    time = datetime.fromtimestamp(timestamp)
-    time += timedelta(hours=9)  # timezoneをJSTに調整
-    name = str(time)
-    # The Cloud Datastore key for the new entity
-    talk_key = datastore_client.key(kind, name)
-
-    # Prepares the new entity
-    talk = datastore.Entity(key=talk_key)
-    talk['1.TimeStamp'] = timestamp
-    talk['2.User'] = user
-    talk['3.Query'] = query
-    talk['4.Response'] = response
-
-    # Saves the entity
-    datastore_client.put(talk)
